@@ -1,32 +1,32 @@
-def test_list_releases(client):
-    response = client.get("/releases/")
+def test_list_releases(client, auth_headers):
+    response = client.get("/releases/", headers=auth_headers)
     assert response.status_code == 200
     data = response.json()
     assert isinstance(data, list)
     assert len(data) == 3
 
 
-def test_get_release_found(client):
-    response = client.get("/releases/1")
+def test_get_release_found(client, auth_headers):
+    response = client.get("/releases/1", headers=auth_headers)
     assert response.status_code == 200
     assert response.json()["version"] == "1.0.0"
 
 
-def test_get_release_not_found(client):
-    response = client.get("/releases/999")
+def test_get_release_not_found(client, auth_headers):
+    response = client.get("/releases/999", headers=auth_headers)
     assert response.status_code == 404
 
 
-def test_validate_release_blocked(client):
-    response = client.post("/releases/3/validate")
+def test_validate_release_blocked(client, auth_headers):
+    response = client.post("/releases/3/validate", headers=auth_headers)
     assert response.status_code == 200
     data = response.json()
     assert data["valid"] is False
     assert len(data["errors"]) > 0
 
 
-def test_validate_release_ok(client):
-    response = client.post("/releases/1/validate")
+def test_validate_release_ok(client, auth_headers):
+    response = client.post("/releases/1/validate", headers=auth_headers)
     assert response.status_code == 200
     data = response.json()
     assert data["valid"] is True
