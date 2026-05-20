@@ -30,3 +30,12 @@ def test_validate_release_ok(client):
     assert response.status_code == 200
     data = response.json()
     assert data["valid"] is True
+
+
+def test_validate_release_missing_timestamp(client):
+    """Release with status=released but no released_at should fail validation."""
+    response = client.post("/releases/2/validate")
+    assert response.status_code == 200
+    # pending status is fine — no timestamp required
+    data = response.json()
+    assert data["valid"] is True
