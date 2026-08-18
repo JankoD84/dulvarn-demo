@@ -1,0 +1,32 @@
+[
+  {
+    "label": "tests: full",
+    "command": "pytest tests/ -v --tb=short",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false
+  },
+  {
+    "label": "python: compile",
+    "command": "python3 -m compileall -q app",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false
+  },
+  {
+    "label": "standards: validate zed json",
+    "command": "python3 -m json.tool .zed/settings.json >/dev/null && python3 -m json.tool .zed/tasks.json >/dev/null",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false
+  },
+  {
+    "label": "git: diff check",
+    "command": "git diff --check",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false
+  },
+  {
+    "label": "run demo locally",
+    "command": "uvicorn app.main:app --reload",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false
+  }
+]
