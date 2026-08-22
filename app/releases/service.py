@@ -1,4 +1,5 @@
 from typing import Optional
+from datetime import datetime
 
 MOCK_RELEASES = [
     {"id": 1, "version": "1.0.0", "status": "released", "released_at": "2026-05-01T10:00:00Z"},
