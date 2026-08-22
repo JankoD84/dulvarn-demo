@@ -67,7 +67,7 @@ Allowed Standards/config paths:
 
 ## Task classes
 
-Use `.ai/repo/repository-context.md` and `.ai/process/implementation-workflow.md` to classify work before editing.
+Use `.ai/repo/profile.md` and `.ai/repo/boundaries.md` and `.ai/process/implementation-workflow.md` to classify work before editing.
 
 Higher-risk classes include authentication/JWT/security, demo release scenario/mock-data, Dulvarn integration/demo-contract, dependency/CI/runtime configuration, and any change that alters demo scenario signals.
 
@@ -91,3 +91,39 @@ git diff --check
 ```
 
 Do not claim Ruff, mypy, coverage gates, Docker builds, security scans, deployment checks, or production integration tests unless the repository actually adds them.
+
+## Universal AI Governance Contract
+
+`AGENTS.md` is the universal AI-agent entrypoint for Devin, Windsurf/Cascade, Cursor, VS Code + Roo Code, and Zed. Repository-specific rules in this file override generic ecosystem guidance.
+
+Before implementation work, check and report:
+
+```bash
+git status
+git branch --show-current
+git diff --stat
+```
+
+Then read the repository AI context that is relevant to the task:
+
+- `.ai/repo/profile.md`
+- `.ai/repo/boundaries.md`
+- `.ai/repo/commands.md`
+- `.ai/governance/source-of-truth.md`
+- `.ai/governance/safety-policy.md`
+- `.ai/governance/quality-gates.md`
+
+Source-of-truth precedence:
+
+1. Current repository source code
+2. Current tests, schemas and contracts
+3. Current runtime / Git state
+4. Repository `AGENTS.md`
+5. Canonical repository documentation
+6. `.ai/repo/` navigation/context
+7. Task-specific `.agents/skills/`, when present
+8. Historical reports, summaries, RAG output and chat context
+
+Canonical AI governance lives in `AGENTS.md`, `.ai/`, and `.agents/skills/` when skills exist. IDE-specific directories such as `.zed/`, `.cursor/`, `.roo/`, `.windsurf/`, and `.vscode/` are execution adapters only and must not redefine repository engineering standards.
+
+Do not modify provider credentials, model routing, LiteLLM, MCP runtime configuration, OAuth, AWS, Azure, ChatGPT subscription settings, production infrastructure, secrets, or `.env*` files as part of repository-governance work.
