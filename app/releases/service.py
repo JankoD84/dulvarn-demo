@@ -22,10 +22,18 @@ def get_release_by_id(release_id: int) -> Optional[dict]:
 def validate_release(release: dict) -> dict:
     errors = []
 
+    if release is None:
+        return {"valid": False, "errors": ["Release data is missing."]}
+
     if release.get("status") == "blocked":
         errors.append("Release is blocked — resolve blockers before proceeding.")
 
-    if not release.get("version"):
-        errors.append("Version field is required.")
+    version = release.get("version")
+    if not version or not version.strip():
+        errors.append("Version field is required and cannot be blank.")
+
+    released_at = release.get("released_at")
+    if release.get("status") == "released" and released_at is None:
+        errors.append("Released status requires a released_at timestamp.")
 
     return {"valid": len(errors) == 0, "errors": errors}
