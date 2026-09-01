@@ -1,9 +1,11 @@
 # Dulvarn Demo Agent Instructions
 
 Repository: `dulvarn-demo`
-Canonical path: `/home/qaengineer/Dokumenty/Wildcode Studio/Dulvarn/dulvarn-demo`
+Canonical path in this workspace: `/home/qaengineer/Dokumenty/Wildcode Studio/Dulvarn/platform/dulvarn-demo`
 
-This repository is a **demo / sandbox** for Dulvarn Release Control System integration and release-related workflows using a small Acme FastAPI API. It is not the canonical implementation of Dulvarn production internals.
+Workspace governance bootstrap: `../../AGENTS.md` → `../../governance/dulvarn-ecosystem-governance/docs/source-of-truth/` → `../../governance/dulvarn-ecosystem-governance/docs/source-of-truth/DULVARN_MASTER_ROADMAP.md`.
+
+This repository is a **demo / sandbox** for Dulvarn RDIS-adjacent release integration and release-related workflows using a small Acme FastAPI API. It is not the canonical implementation of Dulvarn production internals or governed `GO` / `CONDITIONAL_GO` / `NO_GO` release authority.
 
 ## Required starting point
 
@@ -25,11 +27,12 @@ If unexpected modified or untracked work exists, stop and report it.
 Use this order:
 
 1. Current tracked source and tests in this repository
-2. `.ai/repo/*`
-3. `.ai/governance/*`
-4. `.ai/process/*`
-5. Relevant `.agents/skills/*`
-6. README, clearly separated as documented claims when not implemented
+2. `../../governance/dulvarn-ecosystem-governance/docs/source-of-truth/DULVARN_MASTER_ROADMAP.md` as TARGET / PLANNING truth, not implementation proof
+3. `.ai/repo/*`
+4. `.ai/governance/*`
+5. `.ai/process/*`
+6. Relevant `.agents/skills/*`
+7. README, clearly separated as documented claims when not implemented
 
 Do not treat unmerged feature branches as current repository truth.
 
@@ -37,7 +40,7 @@ Do not treat unmerged feature branches as current repository truth.
 
 `dulvarn-demo` may own its own demo FastAPI routes, demo auth/JWT behavior, mock releases, validation response, tests, and demo CI.
 
-It does **not** own Dulvarn production release decision logic, evidence lifecycle, release policy, backtesting, cryptographic proof, production auth/authorization, canonical Store/license data, infrastructure, or production API architecture.
+It does **not** own Dulvarn production release decision logic, evidence lifecycle, release policy, Release Candidate authority, backtesting, cryptographic proof, production auth/authorization, canonical Store/CRM/License data, or platform infrastructure.
 
 When describing Dulvarn production behavior, reference the appropriate canonical repository rather than deriving it from this demo.
 

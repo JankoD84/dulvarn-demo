@@ -6,7 +6,7 @@
 
 ## Purpose
 
-> This repository is used as a live demo environment for [Dulvarn](https://dulvarn.com) — a Release Control System that gives every pull request an explicit GO, CONDITIONAL GO, or NO-GO decision.
+This repository is used as a live demo environment for [Dulvarn](https://dulvarn.com) — an independent Release Decision Intelligence System (RDIS). This demo may show release-related validation signals, but it is not canonical governed `GO` / `CONDITIONAL_GO` / `NO_GO` release authority.
 
 ## Technology stack
 

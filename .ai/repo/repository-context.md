@@ -9,7 +9,7 @@
 
 ## Role
 
-This is a **demo / sandbox** repository for Dulvarn Release Control System integration and release-related workflows using a small Acme FastAPI API.
+This is a **demo / sandbox** repository for Dulvarn RDIS-adjacent release integration and release-related workflows using a small Acme FastAPI API. It is not governed Dulvarn release authority.
 
 It is not the canonical implementation of Dulvarn production internals.
 
