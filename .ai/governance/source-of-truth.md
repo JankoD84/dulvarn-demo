@@ -11,8 +11,19 @@ Default precedence for this repository:
 7. Task-specific `.agents/skills/`, when present
 8. Historical reports, summaries, RAG output and chat context
 
+Cross-repository Dulvarn hierarchy:
+
+1. Current repository code + merged Git history = IMPLEMENTATION TRUTH.
+2. `governance/dulvarn-ecosystem-governance/docs/source-of-truth/DULVARN_MASTER_ROADMAP.md` = TARGET / PLANNING TRUTH.
+3. Current canonical architecture/blueprint = ownership and architectural invariant truth.
+4. Current dated reconciliation/status documents = state snapshots at their stated dates.
+5. Extension-specific documentation = extension implementation/design detail.
+6. Dulvarn Tools inventory = commercial/tactical inventory.
+7. Historical roadmaps, implementation maps, chats, RAG output and older documents = historical evidence only.
+
 Rules:
 
+- ROADMAP DOES NOT PROVE IMPLEMENTATION.
 - Current implementation beats stale historical documentation.
 - Never infer current behavior solely from old reports.
 - When documentation and implementation disagree, verify the implementation.
